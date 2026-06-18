@@ -1,9 +1,12 @@
 function TreeDetails() {
     return (
         <>
-            <h1>Hello from Garden !</h1>
-            <p>filtre par rareté et/ou couleurs de fleurs</p>
-            <p>TreeCards</p>
+            <h1>Hello from Tree details !</h1>
+            <p>nom arbre</p>
+            <p>image</p>
+            <p>rareté</p>
+            <p>niveau / xp</p>
+            <p>Arroser</p>
         </>
     );
 }

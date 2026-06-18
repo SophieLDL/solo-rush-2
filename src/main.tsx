@@ -1,6 +1,44 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.tsx";
+import App from "./pages/App.tsx";
+//pages
+import Home from "./pages/Home.tsx";
+import Garden from "./pages/Garden.tsx";
+import TreeDetails from "./pages/TreeDetails.tsx";
+import NotFound from "./pages/NotFound.tsx";
+import { RouterProvider, Link, createBrowserRouter } from "react-router";
+
+// router creation
+
+const router = createBrowserRouter([
+  {
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />
+
+      },
+      {
+        path: "/garden",
+        element: <Garden />
+
+      },
+      {
+        path: "/garden/:id",
+        element: <TreeDetails />
+
+      },
+      {
+        path: "*",
+        element: <NotFound />
+
+      },
+    ]
+  }
+]);
+
+// rendering
 
 const rootElement = document.getElementById("root");
 
@@ -9,5 +47,5 @@ if (rootElement == null) {
 }
 
 createRoot(rootElement).render(
-  <App />
+  <RouterProvider router={router} />
 );
