@@ -54,9 +54,6 @@ function TreeDetails({ tree }: TreeDetailsProps) {
         }
     }
 
-    function handleFlower() {
-        setFlowerPicked(true);
-    }
 
     function handleProgression() {
         setFlowerPicked(false);
