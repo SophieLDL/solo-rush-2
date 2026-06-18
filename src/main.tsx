@@ -4,9 +4,9 @@ import App from "./pages/App.tsx";
 //pages
 import Home from "./pages/Home.tsx";
 import Garden from "./pages/Garden.tsx";
-import TreeDetails from "./pages/TreeDetails.tsx";
+import TreesDetails from "./pages/TreesDetails.tsx";
 import NotFound from "./pages/NotFound.tsx";
-import { RouterProvider, Link, createBrowserRouter } from "react-router";
+import { RouterProvider, createBrowserRouter } from "react-router";
 
 // router creation
 
@@ -25,8 +25,8 @@ const router = createBrowserRouter([
 
       },
       {
-        path: "/garden/:id",
-        element: <TreeDetails />
+        path: "/garden/:url",
+        element: <TreesDetails />
 
       },
       {
