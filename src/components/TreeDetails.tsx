@@ -75,7 +75,7 @@ function TreeDetails({ tree }: TreeDetailsProps) {
             <p>XP avant le prochain niveau : {100 - xp}</p>
             <p>Croissance de l'arbre : {treeGrowth(level)}</p>
             {level < 3 || xp < 100 ? <button onClick={handleWater}>{xp === 100 && level < 3 ? "LevelUp 🎉" : "Arroser 💦"}</button> : "Niveau max 🥳"}
-            {level === 3 && xp === 100 && <button onClick={handleFlower}>Cueillir 🌸</button>}
+            {level === 3 && xp === 100 && <button onClick={() => { setFlowerPicked(true) }}>Cueillir 🌸</button>}
             {level === 3 && xp === 100 && <button onClick={handleProgression}>Replanter</button>}
             <br />
             <br />
