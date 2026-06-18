@@ -9,7 +9,7 @@
         "xpToNextLevel": 100,
         "growthStage": 1,
         "rarity": "Rare",
-        "image": "cerisier-1.png"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Cerisier_du_Japon_Prunus_serrulata.jpg/1280px-Cerisier_du_Japon_Prunus_serrulata.jpg"
     },
 
     {
@@ -22,7 +22,7 @@
         "xpToNextLevel": 100,
         "growthStage": 1,
         "rarity": "Rare",
-        "image": "magnolia-1.png"
+        "image": "https://bambouprovence.fr/cdn/shop/files/magnolia_1.jpg?v=1738055316&width=1000"
     },
 
     {
@@ -35,7 +35,7 @@
         "xpToNextLevel": 100,
         "growthStage": 1,
         "rarity": "Épique",
-        "image": "arbre-judee-1.png"
+        "image": "https://www.appartement-hipa.fr/wp-content/uploads/elementor/thumbs/Arbre-de-jude-inconvenients-ravvmvwv6n8uu3qi7dkgsanzn018m8mdx2xl9321j4.jpg"
     },
 
     {
@@ -48,7 +48,7 @@
         "xpToNextLevel": 100,
         "growthStage": 1,
         "rarity": "Épique",
-        "image": "albizia-1.png"
+        "image": "https://fleurandie.fr/cdn/shop/files/8C4A903F-56CD-4CC5-B802-1006541B2919.jpg?v=1755706347"
     },
 
     {
@@ -61,7 +61,7 @@
         "xpToNextLevel": 100,
         "growthStage": 1,
         "rarity": "Commun",
-        "image": "mimosa-1.png"
+        "image": "https://plantes-avenue.fr/78487-large_default/mimosa-d-hiver-le-gaulois-silence-ca-pousse-.jpg"
     },
 
     {
@@ -74,7 +74,7 @@
         "xpToNextLevel": 100,
         "growthStage": 1,
         "rarity": "Légendaire",
-        "image": "paulownia-1.png"
+        "image": "https://desforetsacroquer.fr/wp-content/uploads/2024/11/Paulownia-tomentosa.jpg"
     },
 
     {
@@ -87,7 +87,7 @@
         "xpToNextLevel": 100,
         "growthStage": 1,
         "rarity": "Rare",
-        "image": "frene-fleurs-1.png"
+        "image": "https://ma-pepiniere.fr/media/cache/sylius_shop_product_original/32/c4/631421473221e66a14ec87ea8185.jpg"
     },
 
     {
@@ -100,7 +100,7 @@
         "xpToNextLevel": 100,
         "growthStage": 1,
         "rarity": "Commun",
-        "image": "prunier-ornement-1.png"
+        "image": "https://www.pepinieres-demoiselle.com/img/img1000px/prunus-cerasifera-nigra-1.webp"
     },
 
     {
@@ -113,7 +113,7 @@
         "xpToNextLevel": 100,
         "growthStage": 1,
         "rarity": "Rare",
-        "image": "cytise-1.png"
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbJusKsoKZ6joWVxWCdyaOAsIzfxTTUT3vWqtRsSEAA&s=10"
     },
 
     {
@@ -126,7 +126,7 @@
         "xpToNextLevel": 100,
         "growthStage": 1,
         "rarity": "Épique",
-        "image": "jupiter-1.png"
+        "image": "https://m.media-amazon.com/images/I/811IH9eAXrL._AC_UF1000,1000_QL80_.jpg"
     }
 
 ]
