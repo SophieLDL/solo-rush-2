@@ -2,6 +2,7 @@ import TreeCard from "../components/TreeCard";
 import { trees } from "../data/data";
 
 
+
 function Garden() {
     return (
         <>

@@ -1,11 +1,12 @@
 import { trees } from "../data/data";
 import TreeDetails from "../components/TreeDetails"
 import { useParams } from "react-router";
+import { useState } from "react";
 
-function TreesDetails() {
+function TreePage() {
     const { url } = useParams()
 
-    const tree = trees.find((t) => t.url === url);
+    const tree = trees.find((tree) => tree.url === url);
 
     if (!tree) {
         return (
@@ -19,4 +20,4 @@ function TreesDetails() {
     return <TreeDetails tree={tree} />;
 }
 
-export default TreesDetails;
+export default TreePage;

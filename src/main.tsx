@@ -4,7 +4,7 @@ import App from "./pages/App.tsx";
 //pages
 import Home from "./pages/Home.tsx";
 import Garden from "./pages/Garden.tsx";
-import TreesDetails from "./pages/TreesDetails.tsx";
+import TreePage from "./pages/TreePage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { RouterProvider, createBrowserRouter } from "react-router";
 
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/garden/:url",
-        element: <TreesDetails />
+        element: <TreePage />
 
       },
       {

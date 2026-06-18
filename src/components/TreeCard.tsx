@@ -13,6 +13,7 @@ function TreeCard({ tree }: TreeCardProps) {
             <p>Nom scientifique : {tree.scientificName}</p>
             <p>Couleur des fleurs : {tree.flowerColor}</p>
             <p>{tree.rarity}</p>
+            <p>Niveau : {tree.level}</p>
         </>
     )
 }

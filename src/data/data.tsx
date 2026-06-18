@@ -14,7 +14,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Rare",
-            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Cerisier_du_Japon_Prunus_serrulata.jpg/1280px-Cerisier_du_Japon_Prunus_serrulata.jpg"
+            "image": "../src/assets/trees/cerisier-3.jpg"
         },
 
         {
@@ -28,7 +28,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Rare",
-            "image": "https://bambouprovence.fr/cdn/shop/files/magnolia_1.jpg?v=1738055316&width=1000"
+            "image": "../src/assets/trees/magnolia-3.jpg"
         },
 
         {
@@ -42,7 +42,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Épique",
-            "image": "https://www.appartement-hipa.fr/wp-content/uploads/elementor/thumbs/Arbre-de-jude-inconvenients-ravvmvwv6n8uu3qi7dkgsanzn018m8mdx2xl9321j4.jpg"
+            "image": "../src/assets/trees/judee-3.jpg"
         },
 
         {
@@ -56,7 +56,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Épique",
-            "image": "https://fleurandie.fr/cdn/shop/files/8C4A903F-56CD-4CC5-B802-1006541B2919.jpg?v=1755706347"
+            "image": "../src/assets/trees/albizia-3.jpg"
         },
 
         {
@@ -70,7 +70,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Commun",
-            "image": "https://plantes-avenue.fr/78487-large_default/mimosa-d-hiver-le-gaulois-silence-ca-pousse-.jpg"
+            "image": "../src/assets/trees/mimosa-3.jpg"
         },
 
         {
@@ -84,7 +84,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Légendaire",
-            "image": "https://desforetsacroquer.fr/wp-content/uploads/2024/11/Paulownia-tomentosa.jpg"
+            "image": "../src/assets/trees/paulownia-3.jpg"
         },
 
         {
@@ -98,7 +98,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Rare",
-            "image": "https://ma-pepiniere.fr/media/cache/sylius_shop_product_original/32/c4/631421473221e66a14ec87ea8185.jpg"
+            "image": "../src/assets/trees/frene-3.jpg"
         },
 
         {
@@ -112,7 +112,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Commun",
-            "image": "https://www.pepinieres-demoiselle.com/img/img1000px/prunus-cerasifera-nigra-1.webp"
+            "image": "../src/assets/trees/prunier-3.jpg"
         },
 
         {
@@ -126,7 +126,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Rare",
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxbJusKsoKZ6joWVxWCdyaOAsIzfxTTUT3vWqtRsSEAA&s=10"
+            "image": "../src/assets/trees/cytise-3.jpg"
         },
 
         {
@@ -140,7 +140,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Épique",
-            "image": "https://m.media-amazon.com/images/I/811IH9eAXrL._AC_UF1000,1000_QL80_.jpg"
+            "image": "../src/assets/trees/jupiter-3.jpg"
         }
 
     ]
