@@ -8,11 +8,13 @@ interface TreeDetailsProps {
 function TreeDetails({ tree }: TreeDetailsProps) {
     // Je veux que quand on appuie sur le bouton "arroser"
     // l'XP monte de 50 en 50.
-    // quand l'"xpToNextLevel" atteint 0, afficher l'image suivante et ainsi de suite jusqu'au niveau maximum (3 pour le moment)
-    // quand l'XP atteint le "niveau max", afficher un bouton "cueillir la fleur"
+    // quand l'XP atteint 100, recliquer pour faire passer un niveau et afficher l'image suivante et ainsi de suite jusqu'au niveau maximum (3)
+    // quand level atteint 3, afficher un bouton "cueillir la fleur"
     // quand je clique sur le bouton de la fleur, afficher l'image d'une fleur 
     const [level, setLevel] = useState(tree.level);
     const [xp, setXp] = useState(tree.xp);
+
+    const [flowerPicked, setFlowerPicked] = useState(false);
 
     function handleWater() {
         const newXp = xp + 50;
@@ -23,7 +25,7 @@ function TreeDetails({ tree }: TreeDetailsProps) {
         else if (level < 3 && newXp <= 100) {
             setXp(newXp);
         }
-        else if (level === 3) {
+        else if (level === 3 && newXp <= 100) {
             setXp(newXp);
         }
     }
@@ -36,7 +38,7 @@ function TreeDetails({ tree }: TreeDetailsProps) {
             return "Jeune arbre"
         }
         else if (level == 3) {
-            return "Bel Arbre"
+            return "Adulte"
         }
     }
 
@@ -52,17 +54,34 @@ function TreeDetails({ tree }: TreeDetailsProps) {
         }
     }
 
+    function handleFlower() {
+        setFlowerPicked(true);
+    }
+
+    function handleProgression() {
+        setFlowerPicked(false);
+        setLevel(1)
+        setXp(0);
+    }
+
     return (
         <>
             <h1>Détails</h1>
             <h2>{tree.name} <em>({tree.scientificName})</em></h2>
             <img style={{ width: "50%" }} src={`../src/assets/trees/${treeImg(level)}`} alt={`image d'un ${tree.name}`} />
             <p>Couleur des fleurs : {tree.flowerColor}.</p>
-            <p>{tree.rarity}</p>
+            <p>Rareté : {tree.rarity}</p>
             <p>Niveau {level} || {xp}/100 XP</p>
             <p>XP avant le prochain niveau : {100 - xp}</p>
             <p>Croissance de l'arbre : {treeGrowth(level)}</p>
             <button onClick={handleWater}>Arroser</button>
+            {level === 3 && xp === 100 && <button onClick={handleFlower}>Cueillir une de ses fleurs</button>}
+            {level === 3 && xp === 100 && <button onClick={handleProgression}>Replanter</button>}
+            <br />
+            <br />
+            {flowerPicked && (
+                <img style={{ width: "50%" }} src={`../src/assets/trees/${tree.url}-flower.jpg`} alt={`fleur d'un ${tree.name}`} />
+            )}
         </>
     );
 }
