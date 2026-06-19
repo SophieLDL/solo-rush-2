@@ -6,18 +6,23 @@ interface TreeCardProps {
     onWater: (id: number) => void;
 }
 
-// Charge toutes les images du dossier au build, indexées par chemin.
+//Pour le déploiement sur GitHub Pages :
+// Charge TOUTES les images du dossier d'un coup, indexées par chemin de fichier.
+// eager: true => les images sont importées immédiatement (pas de chargement asynchrone),
+// .default => l'URL finale traitée par Vite (copiée dans dist/assets/ au build).
 const treeImages = import.meta.glob("../assets/trees/*.jpg", {
     eager: true,
     import: "default",
 }) as Record<string, string>;
 
+// Petit helper pour retrouver une image par son nom de fichier (ex: "magnolia-3.jpg")
 function getTreeImage(filename: string): string {
     const entry = Object.entries(treeImages).find(([path]) =>
         path.endsWith(`/${filename}`)
     );
     return entry ? entry[1] : "";
 }
+// déploiement sur Pages ok
 
 function TreeCard({ tree, onWater }: TreeCardProps) {
     function treeImg() {

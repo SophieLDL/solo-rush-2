@@ -21,7 +21,7 @@ function TreePage() {
             ;
     }
 
-    return <TreeDetails tree={tree} />;
+    return <TreeDetails key={tree.id} tree={tree} />;
 }
 
 export default TreePage;
