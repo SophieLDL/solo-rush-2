@@ -8,9 +8,10 @@ function Garden() {
         <>
             <h1>Hello from Garden !</h1>
             <p>filtre par rareté et/ou couleurs de fleurs</p>
-            {trees.map((tree) => (
-                <TreeCard key={tree.id} tree={tree} />
-            ))}
+            <div className="garden-grid">
+                {trees.map((tree) => (
+                    <TreeCard key={tree.id} tree={tree} />
+                ))}</div>
 
         </>
     );

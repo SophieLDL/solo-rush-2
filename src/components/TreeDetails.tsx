@@ -61,25 +61,25 @@ function TreeDetails({ tree }: TreeDetailsProps) {
         setXp(0);
     }
 
+    const rarityClass = tree.rarity.toLowerCase().replace("é", "e").replace("è", "e");
+
     return (
-        <>
-            <h1>Détails</h1>
-            <h2>{tree.name} <em>({tree.scientificName})</em></h2>
-            <img style={{ height: "500px" }} src={`../src/assets/trees/${treeImg(level)}`} alt={`image d'un ${tree.name}`} />
+        <div className={`tree-detail rarity-${rarityClass}`}>
+            <div className="tree-detail-header">
+                <span className="rarity-badge">{tree.rarity}</span>
+                <h1>{tree.name} <em>({tree.scientificName})</em></h1>
+            </div>
+            <img src={`../src/assets/trees/${treeImg(level)}`} alt={`image d'un ${tree.name}`} />
             <p>Couleur des fleurs : {tree.flowerColor}.</p>
-            <p>Rareté : {tree.rarity}</p>
-            <p>Niveau actuel : {level} || {xp}/100 XP</p>
-            <p>XP avant le prochain niveau : {100 - xp}</p>
-            <p>Croissance de l'arbre : {treeGrowth(level)}</p>
+            <p>Croissance : {treeGrowth(level)}</p>
+            <p>Niveau : {level} — {xp}/100 XP</p>
             {level < 3 || xp < 100 ? <button onClick={handleWater}>{xp === 100 && level < 3 ? "LevelUp 🎉" : "Arroser 💦"}</button> : "Niveau max 🥳"}
             {level === 3 && xp === 100 && <button onClick={() => { setFlowerPicked(true) }}>Cueillir 🌸</button>}
             {level === 3 && xp === 100 && <button onClick={handleProgression}>Replanter</button>}
-            <br />
-            <br />
             {flowerPicked && (
-                <img style={{ height: "300px" }} src={`../src/assets/trees/${tree.url}-flower.jpg`} alt={`fleur d'un ${tree.name}`} />
+                <img src={`../src/assets/trees/${tree.url}-flower.jpg`} alt={`fleur d'un ${tree.name}`} />
             )}
-        </>
+        </div>
     );
 }
 

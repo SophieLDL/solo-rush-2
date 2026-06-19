@@ -7,14 +7,14 @@ interface TreeCardProps {
 
 function TreeCard({ tree }: TreeCardProps) {
     return (
-        <>
-            <h1>{tree.name}</h1>
-            <img style={{ width: "50%" }} src={tree.image} alt={`image d'un ${tree.name}`} />
-            <p>Nom scientifique : {tree.scientificName}</p>
-            <p>Couleur des fleurs : {tree.flowerColor}</p>
-            <p>{tree.rarity}</p>
+        <div className={`tree-card rarity-${tree.rarity.toLowerCase().replace("é", "e").replace("è", "e")}`}>
+            <span className="rarity-badge">{tree.rarity}</span>
+            <h2>{tree.name}</h2>
+            <img src={tree.image} alt={`image d'un ${tree.name}`} />
+            <p><em>{tree.scientificName}</em></p>
+            <p>Fleurs : {tree.flowerColor}</p>
             <p>Niveau : {tree.level}</p>
-        </>
-    )
+        </div>
+    );
 }
 export default TreeCard;

@@ -1,4 +1,557 @@
-* {
-  box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+/* =========================================================
+   JARDIN FORÊT — Botanical Theme
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* --- Tokens --- */
+:root {
+  --forest: #2d4a35;
+  --leaf: #4a7c59;
+  --moss: #7aab86;
+  --cream: #f6f0e4;
+  --parchment: #ede5d0;
+  --petal: #e8a0b8;
+  --petal-dark: #c4698a;
+  --bark: #7a5c42;
+  --text: #2a2a22;
+  --text-light: #5e5a50;
+  --white: #ffffff;
+
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --shadow: 0 4px 20px rgba(45, 74, 53, 0.13);
+  --shadow-sm: 0 2px 8px rgba(45, 74, 53, 0.10);
 }
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 10% 0%, rgba(122, 171, 134, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 90% 100%, rgba(232, 160, 184, 0.12) 0%, transparent 60%);
+}
+
+/* --- Typography --- */
+h1,
+h2,
+h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  line-height: 1.25;
+  color: var(--forest);
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+em {
+  color: var(--leaf);
+  font-style: italic;
+}
+
+p {
+  color: var(--text-light);
+  margin-bottom: 0.6rem;
+}
+
+a {
+  color: var(--leaf);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--petal-dark);
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem 2rem;
+  background: var(--forest);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
+}
+
+nav>a {
+  color: var(--cream);
+  background: transparent;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav>a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+/* Dropdown */
+div.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+div.dropdown .garden {
+  color: var(--cream);
+  background: transparent;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+div.dropdown .fa-caret-down {
+  color: var(--moss);
+  font-size: 0.8rem;
+  transition: transform 0.2s;
+}
+
+div.dropdowncontent {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  min-width: 180px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--parchment);
+  z-index: 200;
+}
+
+div.dropdowncontent a {
+  display: block;
+  padding: 0.55rem 1.1rem;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: background 0.15s, color 0.15s;
+  border-bottom: 1px solid var(--parchment);
+}
+
+div.dropdowncontent a:last-child {
+  border-bottom: none;
+}
+
+div.dropdowncontent a:hover {
+  background: var(--parchment);
+  color: var(--forest);
+}
+
+.dropdown:hover .garden {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+.dropdown:hover .fa-caret-down {
+  transform: rotate(180deg);
+}
+
+.dropdown:hover .dropdowncontent {
+  display: block;
+}
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* =========================================================
+   HOME PAGE
+   ========================================================= */
+main>h1:first-child {
+  margin-bottom: 1rem;
+}
+
+main>p {
+  max-width: 560px;
+}
+
+main>a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+  padding: 0.7rem 1.5rem;
+  background: var(--forest);
+  color: var(--cream);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: var(--shadow-sm);
+}
+
+main>a:hover {
+  background: var(--leaf);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   GARDEN PAGE — card grid
+   ========================================================= */
+/* Wrapper implicite: les TreeCard sont des siblings directs dans Garden */
+main>h1+p+p {
+  margin-bottom: 1.5rem;
+}
+
+/* TreeCard wrapper — on cible chaque "groupe" h1 + img + p */
+/* Puisqu'il n'y a pas de div wrapper dans TreeCard, on applique
+   un style au conteneur via un trick CSS */
+main:has(img + p) {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Style pour chaque TreeCard
+   TreeCard rend: h1, img, p, p, p, p
+   On utilise des sélecteurs adjacents */
+
+/* Chaque h1 dans main (sauf le premier de page) = titre de carte */
+main h1~h1 {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--parchment);
+}
+
+/* =========================================================
+   TREE DETAIL PAGE
+   ========================================================= */
+.tree-detail-layout {
+  display: grid;
+  gap: 2rem;
+}
+
+/* Image principale de l'arbre */
+main img {
+  max-height: 420px;
+  width: auto;
+  max-width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  display: block;
+  object-fit: cover;
+  margin: 1rem 0;
+}
+
+/* Infos texte */
+main p {
+  font-size: 0.95rem;
+  margin-bottom: 0.45rem;
+}
+
+/* XP / Niveau */
+main p:has(+p:last-of-type) {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+button {
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1.2rem;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  margin: 0.35rem 0.4rem 0.35rem 0;
+}
+
+/* Bouton "Arroser" */
+button:nth-of-type(1) {
+  background: var(--leaf);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+button:nth-of-type(1):hover {
+  background: var(--forest);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Bouton "Cueillir" / LevelUp */
+button:nth-of-type(2) {
+  background: var(--petal);
+  color: var(--forest);
+}
+
+button:nth-of-type(2):hover {
+  background: var(--petal-dark);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Bouton "Replanter" */
+button:nth-of-type(3) {
+  background: var(--parchment);
+  color: var(--bark);
+  border: 1px solid var(--bark);
+}
+
+button:nth-of-type(3):hover {
+  background: var(--bark);
+  color: var(--white);
+}
+
+/* Texte "Niveau max" */
+main>p:last-of-type {
+  font-style: italic;
+  color: var(--leaf);
+}
+
+/* =========================================================
+   XP BAR — bonus visuel
+   Insérer dans TreeDetails si tu veux, mais ce CSS pose
+   les bases pour un éventuel .xp-bar
+   ========================================================= */
+.xp-bar {
+  width: 100%;
+  max-width: 340px;
+  height: 8px;
+  background: var(--parchment);
+  border-radius: 100px;
+  overflow: hidden;
+  margin: 0.5rem 0 1rem;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--moss), var(--leaf));
+  border-radius: 100px;
+  transition: width 0.4s ease;
+}
+
+/* =========================================================
+   NOT FOUND
+   ========================================================= */
+main:has(h1:only-child) {
+  text-align: center;
+  padding-top: 5rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 640px) {
+  nav {
+    padding: 0.6rem 1rem;
+    gap: 0.2rem;
+  }
+
+  main {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  main img {
+    max-height: 260px;
+    border-radius: var(--radius-md);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   GARDEN — grille de cartes
+   ========================================================= */
+.garden-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* =========================================================
+   TREE CARD
+   ========================================================= */
+.tree-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  border-left: 4px solid var(--moss);
+  /* défaut, écrasé par rareté */
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.tree-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.tree-card h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.tree-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin: 0.6rem 0 0.75rem;
+  box-shadow: none;
+}
+
+.tree-card p {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+/* =========================================================
+   BADGE DE RARETÉ
+   ========================================================= */
+.rarity-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  /* couleur défaut, écrasée par rareté */
+  background: var(--moss);
+  color: var(--white);
+}
+
+/* --- Commun --- */
+.rarity-commun {
+  border-left-color: #7aab86;
+}
+
+.rarity-commun .rarity-badge {
+  background: #7aab86;
+  color: #fff;
+}
+
+/* --- Rare --- */
+.rarity-rare {
+  border-left-color: #5b8fa8;
+}
+
+.rarity-rare .rarity-badge {
+  background: #5b8fa8;
+  color: #fff;
+}
+
+/* --- Épique --- */
+.rarity-epique {
+  border-left-color: #9b7ab8;
+}
+
+.rarity-epique .rarity-badge {
+  background: #9b7ab8;
+  color: #fff;
+}
+
+/* --- Légendaire --- */
+.rarity-legendaire {
+  border-left-color: #c9943a;
+}
+
+.rarity-legendaire .rarity-badge {
+  background: #c9943a;
+  color: #fff;
+}
+
+/* Petite étoile décorative pour le légendaire */
+.rarity-legendaire::after {
+  content: "✦";
+  position: absolute;
+  top: 0.75rem;
+  right: 0.9rem;
+  font-size: 0.85rem;
+  color: #c9943a;
+  opacity: 0.5;
+}
+
+/* =========================================================
+   TREE DETAIL PAGE
+   ========================================================= */
+.tree-detail {
+  border-left: 4px solid var(--moss);
+  padding-left: 1.5rem;
+}
+
+.tree-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.tree-detail-header h1 {
+  margin-bottom: 0;
+}
+
+/* Réutilise les classes .rarity-* déjà définies pour la bordure et le badge */
