@@ -1,9 +1,13 @@
 import TreeDetails from "../components/TreeDetails"
 import { useOutletContext, useParams } from "react-router";
-import { useState } from "react";
+import type { Tree } from "../data/Tree";
+
+interface TreePageOutlet {
+    trees: Array<Tree>;
+}
 
 function TreePage() {
-    const { trees, handleWater } = useOutletContext();
+    const { trees }: TreePageOutlet = useOutletContext();
     const { url } = useParams()
 
     const tree = trees.find((tree) => tree.url === url);

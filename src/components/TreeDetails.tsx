@@ -1,13 +1,18 @@
 import { useState } from "react";
 import type { Tree } from "../data/Tree";
-import { useOutletContext, useParams } from "react-router";
+import { useOutletContext } from "react-router";
 
 interface TreeDetailsProps {
     tree: Tree;
 }
 
+interface TreeDetailsOutlet {
+    handleWater: (id: number) => void;
+    handleReset: (id: number) => void;
+}
+
 function TreeDetails({ tree }: TreeDetailsProps) {
-    const { handleReset, handleWater } = useOutletContext();
+    const { handleReset, handleWater }: TreeDetailsOutlet = useOutletContext();
 
     // const { url } = useParams();
 

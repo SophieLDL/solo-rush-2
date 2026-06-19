@@ -14,9 +14,8 @@ function App() {
       prev.map(tree => {
         if (tree.id !== id) return tree;
 
-        const newXp = tree.xp + 50;
-
-        if (newXp >= 100 && tree.level < 3) {
+        // Cas 1 : l'arbre est déjà à 100/100 → on clique pour LEVEL UP
+        if (tree.xp >= 100 && tree.level < 3) {
           return {
             ...tree,
             level: tree.level + 1,
@@ -24,13 +23,16 @@ function App() {
           };
         }
 
+        // Cas 2 : sinon on ajoute simplement 50 XP, plafonné à 100
+        const newXp = Math.min(tree.xp + 50, 100);
         return {
           ...tree,
-          xp: newXp > 100 ? 100 : newXp,
+          xp: newXp,
         };
       })
     );
   }
+
   function handleReset(id: number) {
     setTrees(prev =>
       prev.map(tree => {
@@ -44,6 +46,21 @@ function App() {
       })
     );
   }
+
+  function handleMax(id: number) {
+    setTrees(prev =>
+      prev.map(tree => {
+        if (tree.id !== id) return tree;
+
+        return {
+          ...tree,
+          level: 3,
+          xp: 100,
+        };
+      })
+    );
+  }
+
   return (
     <>
       <nav>
@@ -58,7 +75,7 @@ function App() {
         </div>
       </nav >
       <main>
-        <Outlet context={{ trees, setTrees, handleWater, handleReset }} />
+        <Outlet context={{ trees, setTrees, handleWater, handleReset, handleMax }} />
       </main>
     </>
   )

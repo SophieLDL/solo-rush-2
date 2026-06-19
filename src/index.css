@@ -556,3 +556,15 @@ main:has(h1:only-child) {
 }
 
 /* Réutilise les classes .rarity-* déjà définies pour la bordure et le badge */
+
+.xp-label {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.max-label {
+  font-weight: 600;
+  color: var(--leaf);
+}
