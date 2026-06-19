@@ -1,9 +1,49 @@
 import { useState } from "react";
 import "./App.css";
 import { Link, Outlet } from "react-router";
-import { trees } from "../data/data";
+import { trees as initialTrees } from "../data/data";
+
 
 function App() {
+  const [trees, setTrees] = useState(initialTrees);
+  // const [level, setLevel] = useState(initialTrees.level);
+  // const [xp, setXp] = useState(initialTrees.xp);
+
+  function handleWater(id: number) {
+    setTrees(prev =>
+      prev.map(tree => {
+        if (tree.id !== id) return tree;
+
+        const newXp = tree.xp + 50;
+
+        if (newXp >= 100 && tree.level < 3) {
+          return {
+            ...tree,
+            level: tree.level + 1,
+            xp: 0,
+          };
+        }
+
+        return {
+          ...tree,
+          xp: newXp > 100 ? 100 : newXp,
+        };
+      })
+    );
+  }
+  function handleReset(id: number) {
+    setTrees(prev =>
+      prev.map(tree => {
+        if (tree.id !== id) return tree;
+
+        return {
+          ...tree,
+          level: 1,
+          xp: 0,
+        };
+      })
+    );
+  }
   return (
     <>
       <nav>
@@ -12,13 +52,13 @@ function App() {
           <Link to="/garden" className="garden">Garden</Link><i className="fa fa-caret-down"></i>
           <div className="dropdowncontent">
             {trees.map((tree) => (
-              <Link to={`/garden/${tree.url}`}>{tree.name}</Link>
+              <Link key={tree.id} to={`/garden/${tree.url}`}>{tree.name}</Link>
             ))}
           </div>
         </div>
       </nav >
       <main>
-        <Outlet />
+        <Outlet context={{ trees, setTrees, handleWater, handleReset }} />
       </main>
     </>
   )

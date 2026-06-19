@@ -1,9 +1,9 @@
-import { trees } from "../data/data";
 import TreeDetails from "../components/TreeDetails"
-import { useParams } from "react-router";
+import { useOutletContext, useParams } from "react-router";
 import { useState } from "react";
 
 function TreePage() {
+    const { trees, handleWater } = useOutletContext();
     const { url } = useParams()
 
     const tree = trees.find((tree) => tree.url === url);
