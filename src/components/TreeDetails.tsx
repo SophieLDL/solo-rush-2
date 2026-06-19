@@ -11,6 +11,24 @@ interface TreeDetailsOutlet {
     handleReset: (id: number) => void;
 }
 
+//Pour le déploiement sur GitHub Pages :
+// Charge TOUTES les images du dossier d'un coup, indexées par chemin de fichier.
+// eager: true => les images sont importées immédiatement (pas de chargement asynchrone),
+// .default => l'URL finale traitée par Vite (copiée dans dist/assets/ au build).
+const treeImages = import.meta.glob("../assets/trees/*.jpg", {
+    eager: true,
+    import: "default",
+}) as Record<string, string>;
+
+// Petit helper pour retrouver une image par son nom de fichier (ex: "magnolia-3.jpg")
+function getTreeImage(filename: string): string {
+    const entry = Object.entries(treeImages).find(([path]) =>
+        path.endsWith(`/${filename}`)
+    );
+    return entry ? entry[1] : "";
+}
+// déploiement sur Pages ok
+
 function TreeDetails({ tree }: TreeDetailsProps) {
     const { handleReset, handleWater }: TreeDetailsOutlet = useOutletContext();
 
@@ -66,7 +84,7 @@ function TreeDetails({ tree }: TreeDetailsProps) {
                 <span className="rarity-badge">{tree.rarity}</span>
                 <h1>{tree.name} <em>({tree.scientificName})</em></h1>
             </div>
-            <img src={`../../solo-rush-2/src/assets/trees/${treeImg()}`} alt={`image d'un ${tree.name}`} />
+            <img src={getTreeImage(treeImg() ?? "")} alt={`image d'un ${tree.name}`} />
             <p>Couleur des fleurs : {tree.flowerColor}.</p>
             <p>Croissance : {treeGrowth()}</p>
             <p>Niveau : {tree.level} — {tree.xp}/100 XP</p>
@@ -74,7 +92,7 @@ function TreeDetails({ tree }: TreeDetailsProps) {
             {tree.level === 3 && tree.xp === 100 && <button onClick={() => { setFlowerPicked(true) }}>Cueillir 🌸</button>}
             {tree.level === 3 && tree.xp === 100 && <button onClick={() => { setFlowerPicked(false); handleReset(tree.id); }}>Replanter</button>}
             {flowerPicked && (
-                <img src={`../../solo-rush-2/src/assets/trees/${tree.url}-flower.jpg`} alt={`fleur d'un ${tree.name}`} />
+                <img src={getTreeImage(`${tree.url}-flower.jpg`)} alt={`fleur d'un ${tree.name}`} />
             )}
         </div>
     );

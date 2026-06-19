@@ -6,6 +6,18 @@ interface TreeCardProps {
     onWater: (id: number) => void;
 }
 
+// Charge toutes les images du dossier au build, indexées par chemin.
+const treeImages = import.meta.glob("../assets/trees/*.jpg", {
+    eager: true,
+    import: "default",
+}) as Record<string, string>;
+
+function getTreeImage(filename: string): string {
+    const entry = Object.entries(treeImages).find(([path]) =>
+        path.endsWith(`/${filename}`)
+    );
+    return entry ? entry[1] : "";
+}
 
 function TreeCard({ tree, onWater }: TreeCardProps) {
     function treeImg() {
@@ -23,7 +35,7 @@ function TreeCard({ tree, onWater }: TreeCardProps) {
         <div className={`tree-card rarity-${tree.rarity.toLowerCase().replace("é", "e").replace("è", "e")}`}>
             <span className="rarity-badge">{tree.rarity}</span>
             <Link to={`/solo-rush-2/garden/${tree.url}`}><h2>{tree.name}</h2></Link>
-            <Link to={`/solo-rush-2/garden/${tree.url}`}><img src={`../solo-rush-2/src/assets/trees/${treeImg()}`} alt={`image d'un ${tree.name}`} /></Link>
+            <Link to={`/solo-rush-2/garden/${tree.url}`}><img src={getTreeImage(treeImg() ?? "")} alt={`image d'un ${tree.name}`} /></Link>
             <p><em>{tree.scientificName}</em></p>
             <p>Fleurs : {tree.flowerColor}</p>
             <p>Niveau : {tree.level}</p>
