@@ -1,5 +1,5 @@
 import TreeDetails from "../components/TreeDetails"
-import { useOutletContext, useParams } from "react-router";
+import { useOutletContext, useParams, Link } from "react-router";
 import type { Tree } from "../data/Tree";
 
 interface TreePageOutlet {
@@ -16,6 +16,7 @@ function TreePage() {
         return (
             <>
                 <h1>Arbre introuvable</h1>
+                <Link to="/solo-rush-2/garden" className="garden">Retour au jardin</Link>
             </>
         )
             ;

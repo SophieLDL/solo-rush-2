@@ -5,10 +5,12 @@ function Home() {
     return (
         <>
             <h1>Bienvenue dans le jardin forêt !</h1>
-            <p>Présentation du projet</p>
-            <p>Actuellement, vous pouvez vous occuper de {trees.length} arbres.</p>
-            <p>Chaque arbre est accessible en haut de la page.</p>
-            <p>Et pour tous les voir, c'est ici :</p>
+            <br />
+            <p>Actuellement, vous pouvez vous occuper de <em>{trees.length}</em> arbres.</p>
+            <p>A vous de faire ce qu'il faut pour les faire grandir, et récolter leurs fleurs, parce que les fleurs, c'est joli 🥰 </p>
+            <p>Chaque arbre est accessible via le menu déroulant en haut de la page.</p>
+            <br />
+            <p>Ou bien tous en même temps, juste ici :</p>
             <Link to="/solo-rush-2/garden">Commencez à jardiner</Link>
         </>
     );
