@@ -155,7 +155,9 @@ div.dropdown .fa-caret-down {
 div.dropdowncontent {
   display: none;
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
+  padding-top: 8px;
+  /* remplace le gap par du padding, donc la zone reste "survolée" */
   left: 0;
   background: var(--white);
   border-radius: var(--radius-md);
@@ -485,7 +487,7 @@ main:has(h1:only-child) {
 
 /* --- Commun --- */
 .rarity-commun {
-  border-left-color: #7aab86;
+  border-left: 4px solid #7aab86;
 }
 
 .rarity-commun .rarity-badge {
@@ -495,7 +497,7 @@ main:has(h1:only-child) {
 
 /* --- Rare --- */
 .rarity-rare {
-  border-left-color: #5b8fa8;
+  border-left: 4px solid #5b8fa8;
 }
 
 .rarity-rare .rarity-badge {
@@ -505,7 +507,7 @@ main:has(h1:only-child) {
 
 /* --- Épique --- */
 .rarity-epique {
-  border-left-color: #9b7ab8;
+  border-left: 4px solid #9b7ab8;
 }
 
 .rarity-epique .rarity-badge {
@@ -515,7 +517,7 @@ main:has(h1:only-child) {
 
 /* --- Légendaire --- */
 .rarity-legendaire {
-  border-left-color: #c9943a;
+  border-left: 4px solid #c9943a;
 }
 
 .rarity-legendaire .rarity-badge {
@@ -538,7 +540,6 @@ main:has(h1:only-child) {
    TREE DETAIL PAGE
    ========================================================= */
 .tree-detail {
-  border-left: 4px solid var(--moss);
   padding-left: 1.5rem;
 }
 
