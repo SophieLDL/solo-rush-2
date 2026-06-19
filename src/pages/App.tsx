@@ -64,12 +64,12 @@ function App() {
   return (
     <>
       <nav>
-        <Link to="/">Home</Link>
+        <Link to="/solo-rush-2/">Home</Link>
         <div className="dropdown">
-          <Link to="/garden" className="garden">Garden</Link><i className="fa fa-caret-down"></i>
+          <Link to="/solo-rush-2/garden" className="garden">Garden</Link><i className="fa fa-caret-down"></i>
           <div className="dropdowncontent">
             {trees.map((tree) => (
-              <Link key={tree.id} to={`/garden/${tree.url}`}>{tree.name}</Link>
+              <Link key={tree.id} to={`/solo-rush-2/garden/${tree.url}`}>{tree.name}</Link>
             ))}
           </div>
         </div>

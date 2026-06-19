@@ -66,7 +66,7 @@ function TreeDetails({ tree }: TreeDetailsProps) {
                 <span className="rarity-badge">{tree.rarity}</span>
                 <h1>{tree.name} <em>({tree.scientificName})</em></h1>
             </div>
-            <img src={`../src/assets/trees/${treeImg()}`} alt={`image d'un ${tree.name}`} />
+            <img src={`../../solo-rush-2/src/assets/trees/${treeImg()}`} alt={`image d'un ${tree.name}`} />
             <p>Couleur des fleurs : {tree.flowerColor}.</p>
             <p>Croissance : {treeGrowth()}</p>
             <p>Niveau : {tree.level} — {tree.xp}/100 XP</p>
@@ -74,7 +74,7 @@ function TreeDetails({ tree }: TreeDetailsProps) {
             {tree.level === 3 && tree.xp === 100 && <button onClick={() => { setFlowerPicked(true) }}>Cueillir 🌸</button>}
             {tree.level === 3 && tree.xp === 100 && <button onClick={() => { setFlowerPicked(false); handleReset(tree.id); }}>Replanter</button>}
             {flowerPicked && (
-                <img src={`../src/assets/trees/${tree.url}-flower.jpg`} alt={`fleur d'un ${tree.name}`} />
+                <img src={`../../solo-rush-2/src/assets/trees/${tree.url}-flower.jpg`} alt={`fleur d'un ${tree.name}`} />
             )}
         </div>
     );

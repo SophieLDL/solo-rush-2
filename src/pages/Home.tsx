@@ -9,7 +9,7 @@ function Home() {
             <p>Actuellement, vous pouvez vous occuper de {trees.length} arbres.</p>
             <p>Chaque arbre est accessible en haut de la page.</p>
             <p>Et pour tous les voir, c'est ici :</p>
-            <Link to="/garden">Commencez à jardiner</Link>
+            <Link to="/solo-rush-2/garden">Commencez à jardiner</Link>
         </>
     );
 }

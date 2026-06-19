@@ -14,7 +14,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Rare",
-            "image": "../src/assets/trees/cerisier-3.jpg"
+            "image": "../solo-rush-2/src/assets/trees/cerisier-3.jpg"
         },
 
         {
@@ -28,7 +28,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Rare",
-            "image": "../src/assets/trees/magnolia-3.jpg"
+            "image": "../solo-rush-2/src/assets/trees/magnolia-3.jpg"
         },
 
         {
@@ -42,7 +42,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Épique",
-            "image": "../src/assets/trees/judee-3.jpg"
+            "image": "../solo-rush-2/src/assets/trees/judee-3.jpg"
         },
 
         {
@@ -56,7 +56,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Épique",
-            "image": "../src/assets/trees/albizia-3.jpg"
+            "image": "../solo-rush-2/src/assets/trees/albizia-3.jpg"
         },
 
         {
@@ -70,7 +70,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Commun",
-            "image": "../src/assets/trees/mimosa-3.jpg"
+            "image": "../solo-rush-2/src/assets/trees/mimosa-3.jpg"
         },
 
         {
@@ -84,7 +84,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Légendaire",
-            "image": "../src/assets/trees/paulownia-3.jpg"
+            "image": "../solo-rush-2/src/assets/trees/paulownia-3.jpg"
         },
 
         {
@@ -98,7 +98,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Rare",
-            "image": "../src/assets/trees/frene-3.jpg"
+            "image": "../solo-rush-2/src/assets/trees/frene-3.jpg"
         },
 
         {
@@ -112,7 +112,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Commun",
-            "image": "../src/assets/trees/prunier-3.jpg"
+            "image": "../solo-rush-2/src/assets/trees/prunier-3.jpg"
         },
 
         {
@@ -126,7 +126,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Rare",
-            "image": "../src/assets/trees/cytise-3.jpg"
+            "image": "../solo-rush-2/src/assets/trees/cytise-3.jpg"
         },
 
         {
@@ -140,7 +140,7 @@ export const trees: Tree[] =
             "xpToNextLevel": 100,
             "growthStage": 1,
             "rarity": "Épique",
-            "image": "../src/assets/trees/jupiter-3.jpg"
+            "image": "../solo-rush-2/src/assets/trees/jupiter-3.jpg"
         }
 
     ]
