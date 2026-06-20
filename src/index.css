@@ -568,3 +568,7 @@ main:has(h1:only-child) {
   font-weight: 600;
   color: var(--leaf);
 }
+
+select {
+  margin-right: 10px;
+}
