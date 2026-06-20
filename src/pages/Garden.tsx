@@ -16,6 +16,7 @@ function Garden() {
     const { trees, handleWater, handleReset, handleMax }: GardenOutlets = useOutletContext();
 
     const [sortBy, setSortBy] = useState("name");
+    const [research, setResearch] = useState("");
     const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
 
     function handleAllReset() {
@@ -37,25 +38,25 @@ function Garden() {
         Légendaire: 4,
     };
 
-    function getSortedTrees() {
-        const sortedTrees = [...trees];
+    const direction = sortDirection === "asc" ? 1 : -1;
+    const filteredTrees = [...trees].filter(tree => tree.flowerColor.toLowerCase().includes(research.toLowerCase()));
+    const visibleTrees = getSortedTrees(filteredTrees);
+
+    function getSortedTrees(filteredTrees: Tree[]) {
         if (sortBy === "name") {
-            sortedTrees.sort((a, b) => (a.name.localeCompare(b.name)) * direction)
+            filteredTrees.sort((a, b) => (a.name.localeCompare(b.name)) * direction)
         }
         else if (sortBy === "level") {
-            sortedTrees.sort((a, b) => (a.level - b.level) * direction)
+            filteredTrees.sort((a, b) => (a.level - b.level) * direction)
         }
         else if (sortBy === "rarity") {
-            sortedTrees.sort((a, b) => (rarityOrder[a.rarity] - rarityOrder[b.rarity]) * direction)
+            filteredTrees.sort((a, b) => (rarityOrder[a.rarity] - rarityOrder[b.rarity]) * direction)
         }
         else if (sortBy === "flowerColor") {
-            sortedTrees.sort((a, b) => (a.flowerColor.localeCompare(b.flowerColor)) * direction)
+            filteredTrees.sort((a, b) => (a.flowerColor.localeCompare(b.flowerColor)) * direction)
         }
-        return sortedTrees;
+        return filteredTrees;
     }
-
-    const direction = sortDirection === "asc" ? 1 : -1;
-
 
     return (
         <>
@@ -79,8 +80,9 @@ function Garden() {
             <br />
 
             <button onClick={handleAllMax}>Niveaux Max</button> <button onClick={handleAllReset}>Niveaux Min</button>
+            <search><input type="search" value={research} onChange={(e) => setResearch(e.target.value)} placeholder="Filtrer par couleur de fleur" /></search>
             <div className="garden-grid">
-                {getSortedTrees().map((tree) => (
+                {visibleTrees.map((tree) => (
                     <TreeCard key={tree.id} tree={tree} onWater={handleWater} />
                 ))}</div>
 
