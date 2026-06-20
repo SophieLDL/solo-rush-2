@@ -61,26 +61,28 @@ function Garden() {
     return (
         <>
             <h1>Garden 🌳</h1>
-            <p>Dans le jardin, vous pouvez arroser les arbres, pour leur faire gagner de l'expérience. <br /> Lorsqu'il a accumulé assez d'expérience, il monte un niveau ! Passant de <em>Jeune pousse</em> à <em>Jeune Arbre</em>, puis à <em>Adulte</em>.</p>
-            <p>Allez voir un arbre pour avoir des détails, et pouvoir cueillir une fleur !</p>
-            <p>Vous pouvez passer tous les arbres niveau maximum ou minimum grâce aux boutons ci-dessous</p>
+            <p>Dans le jardin, vous pouvez arroser les arbres, pour leur faire gagner de l'expérience. <br />
+                Lorsqu'ils ont accumulé assez d'expérience, ils montent d'un niveau ! Passant de <em>Jeune pousse</em> à <em>Jeune Arbre</em>, puis à <em>Adulte</em>.</p>
+            <p>Allez voir un arbre pour avoir les détails de sa croissance, et pouvoir cueillir une fleur !</p>
+            <p>Vous pouvez <strong>trier</strong> la liste d'arbres, ou la <strong>filtrer</strong> par couleur de fleurs. <br /><br />
+                Passez tous les arbres niveau maximum ou minimum grâce aux boutons ci-dessous.</p>
 
             <br />
 
-            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+            <select className="sort-select" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
                 <option value="" selected disabled>Trier par ...</option>
                 <option value="name">Nom</option>
                 <option value="level">Niveau</option>
                 <option value="rarity">Rareté</option>
                 <option value="flowerColor">Couleur des fleurs</option>
             </select>
-            <button onClick={() => { setSortDirection(sortDirection === "asc" ? "desc" : "asc") }}>{sortDirection === "asc" ? "↑" : "↓"}</button>
+            <button className="sort-direction-btn" onClick={() => { setSortDirection(sortDirection === "asc" ? "desc" : "asc") }}>{sortDirection === "asc" ? "↑" : "↓"}</button>
 
             <br />
             <br />
 
             <button onClick={handleAllMax}>Niveaux Max</button> <button onClick={handleAllReset}>Niveaux Min</button>
-            <search><input type="search" value={research} onChange={(e) => setResearch(e.target.value)} placeholder="Filtrer par couleur de fleur" /></search>
+            <search className="garden-search"><input type="search" className="garden-search-input" value={research} onChange={(e) => setResearch(e.target.value)} placeholder="Filtrer par couleur de fleur" /></search>
             <div className="garden-grid">
                 {visibleTrees.map((tree) => (
                     <TreeCard key={tree.id} tree={tree} onWater={handleWater} />
