@@ -2,6 +2,7 @@ import { useOutletContext } from "react-router";
 import TreeCard from "../components/TreeCard";
 import type { Tree } from "../data/Tree";
 import { useState } from "react";
+import TiltCard from "../components/TiltCard.tsx";
 
 interface GardenOutlets {
     trees: Array<Tree>;
@@ -85,7 +86,9 @@ function Garden() {
             <search className="garden-search"><input type="search" className="garden-search-input" value={research} onChange={(e) => setResearch(e.target.value)} placeholder="Filtrer par couleur de fleur" /></search>
             <div className="garden-grid">
                 {visibleTrees.map((tree) => (
-                    <TreeCard key={tree.id} tree={tree} onWater={handleWater} />
+                    <TiltCard key={tree.id}>
+                        <TreeCard key={tree.id} tree={tree} onWater={handleWater} />
+                    </TiltCard>
                 ))}</div>
 
         </>

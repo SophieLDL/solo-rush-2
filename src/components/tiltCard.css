@@ -1,0 +1,23 @@
+.tilt-wrapper {
+    perspective: 1000px;
+    /* distance "virtuelle" de l'oeil à l'écran : plus c'est petit, plus l'effet 3D est marqué */
+}
+
+.tilt-card {
+    position: relative;
+    transform-style: preserve-3d;
+    /* indispensable : sans ça, les enfants restent "à plat" malgré la rotation du parent */
+    transition: transform 0.1s ease-out;
+    /* fluidité du mouvement, pas trop lente sinon ça "traîne" */
+    overflow: hidden;
+    /* pour que le reflet ne déborde pas des coins arrondis */
+}
+
+.tilt-glare {
+    position: absolute;
+    inset: 0;
+    /* occupe toute la carte */
+    pointer-events: none;
+    /* sinon le reflet "vole" les événements de souris à la carte en dessous */
+    border-radius: inherit;
+}
